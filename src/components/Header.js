@@ -58,6 +58,18 @@ const Header = () => {
             </li>
             <li>
               <NavLink
+                to='/dashboard'
+                aria-label='dashboard'
+                title='Dashboard'
+                className={({isActive})=> isActive? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 
+                'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+              }
+              >
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to='/about'
                 aria-label='About us'
                 title='About us'
