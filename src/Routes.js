@@ -6,6 +6,9 @@ import About from "./components/About";
 import Books from "./components/Books";
 import BookDetails from "./components/BookDetails";
 import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import SingUp from "./components/SingUp";
+import PrivetRoutes from "./components/PrivetRoutes/PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -35,17 +38,27 @@ const router = createBrowserRouter([
         element: <Books></Books>,
       },
       {
+        path: "login",
+
+        element: <Login></Login>,
+      },
+      {
+        path: "singup",
+
+        element:<SingUp></SingUp> 
+      },
+      {
         path: "book/:id",
         loader: ({ params }) =>
           fetch(`https://api.itbook.store/1.0/books/${params.id}`),
-        element: <BookDetails></BookDetails>,
+        element:<PrivetRoutes> <BookDetails></BookDetails></PrivetRoutes>,
       },
       {
         path: "dashboard",
         loader: () => fetch("Dashboard.json"),
 
-        element: <Dashboard></Dashboard>,
-      },
+        element: <PrivetRoutes> <Dashboard></Dashboard> </PrivetRoutes>
+      }
     ],
   },
 ]);

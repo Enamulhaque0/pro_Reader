@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { AuthContext } from './Contexts/UserContext'
 
 const Header = () => {
+  const {user,logOut}= useContext(AuthContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   return (
     <div className='bg-gray-100'>
@@ -56,6 +58,33 @@ const Header = () => {
                 Books
               </NavLink>
             </li>
+           {
+            user?.uid ? <button onClick={logOut}>Log out</button>: <>
+             <li>
+              <NavLink
+                to='/login'
+                aria-label='Books'
+                title='Books'
+                className={({isActive})=> isActive? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 
+                'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+              }
+              >
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/singup'
+                aria-label='Books'
+                title='Books'
+                className={({isActive})=> isActive? 'font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400' : 
+                'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+              }
+              >
+                Sing Up
+              </NavLink>
+            </li></>
+           }
             <li>
               <NavLink
                 to='/dashboard'
@@ -183,6 +212,7 @@ const Header = () => {
                         </Link>
                       </li>
                     </ul>
+                   
                   </nav>
                 </div>
               </div>
