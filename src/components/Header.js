@@ -201,6 +201,33 @@ const Header = () => {
                           Books
                         </Link>
                       </li>
+                      {
+
+                        user?.uid? <button onClick={logOut}>Log Out</button> :
+                        <>
+                        <li>
+                        <Link
+                          to='/login'
+                          aria-label='Books'
+                          title='Books'
+                          className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                        >
+                          Login
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to='/singup'
+                          aria-label='Books'
+                          title='Books'
+                          className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                        >
+                          SingUp
+                        </Link>
+                      </li>
+                        
+                        </>
+                      }
                       <li>
                         <Link
                           to='/about'
